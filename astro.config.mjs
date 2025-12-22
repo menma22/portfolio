@@ -6,7 +6,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwind()],
   },
-  // あなたのGitHubアカウント名とリポジトリ名に合わせて変更してください
-  site: 'https://mahiro-account.github.io',
-  base: '/portfolio-glass', // リポジトリ名が 'portfolio-glass' の場合
+  // GitHub Pages用の設定
+  site: 'https://menma22.github.io',
+  base: '/portfolio',
 });

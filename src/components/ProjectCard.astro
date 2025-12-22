@@ -1,0 +1,47 @@
+---
+// src/components/ProjectCard.astro
+interface Props {
+	title: string;
+	description: string;
+    imageUrl: string; // スクリーンショット画像のパス（publicフォルダ内）
+    projectUrl: string; // SaaSのURL
+    tags: string[];
+}
+
+const { title, description, imageUrl, projectUrl, tags } = Astro.props;
+---
+
+<a href={projectUrl} target="_blank" rel="noopener noreferrer" class="group block">
+    <div class="relative h-full rounded-3xl bg-white/5 border border-white/10 p-6 overflow-hidden backdrop-blur-xl shadow-2xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/10 group-hover:shadow-blue-500/20 group-hover:border-white/20">
+        
+        <div class="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"></div>
+
+        <div class="relative aspect-video rounded-2xl overflow-hidden border border-white/5 shadow-inner mb-6 group-hover:shadow-lg transition-shadow">
+            <div class="absolute inset-0 bg-gradient-to-tr from-gray-950/20 to-transparent z-10 pointer-events-none"></div>
+            <img src={imageUrl} alt={title} class="w-full h-full object-cover object-top transform transition-transform duration-700 group-hover:scale-105" />
+        </div>
+
+        <div class="relative z-20">
+            <div class="flex justify-between items-start mb-3">
+                <h3 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 group-hover:to-blue-200 transition-colors">
+                    {title}
+                </h3>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400 group-hover:text-white transition-colors transform group-hover:translate-x-1 group-hover:-translate-y-1">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+            </div>
+
+            <p class="text-gray-400 line-clamp-2 mb-6 group-hover:text-gray-300 transition-colors">
+                {description}
+            </p>
+
+            <div class="flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                    <span class="px-3 py-1 text-xs font-medium rounded-full bg-white/5 border border-white/10 text-gray-300 group-hover:bg-white/10 group-hover:text-white transition-colors">
+                        {tag}
+                    </span>
+                ))}
+            </div>
+        </div>
+    </div>
+</a>

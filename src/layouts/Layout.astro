@@ -1,0 +1,49 @@
+---
+// src/layouts/Layout.astro
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Mahiro's Portfolio" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+		<title>{title}</title>
+        <script>
+            import "../styles/global.css";
+        </script>
+	</head>
+	<body class="bg-gray-950 text-gray-100 font-['Inter'] antialiased overflow-x-hidden relative min-h-screen">
+        <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+            <div class="absolute top-[-20%] left-[-20%] w-[50vw] h-[50vw] bg-blue-700/30 rounded-full blur-[120px] animate-pulse"></div>
+            <div class="absolute bottom-[-20%] right-[-20%] w-[50vw] h-[50vw] bg-purple-700/30 rounded-full blur-[120px] animate-pulse delay-1000"></div>
+        </div>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+    /* 全体のスクロールバーもスタイリッシュに */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #334155;
+        border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #475569;
+    }
+</style>

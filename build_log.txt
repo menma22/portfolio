@@ -1,0 +1,542 @@
+2025-12-22T13:29:22.774Z astro:cli --verbose flag enabled! Enabling: DEBUG="astro:*,vite:*"
+2025-12-22T13:29:22.776Z astro:cli Tip: Set the DEBUG env variable directly for more control. Example: "DEBUG=astro:*,vite:* astro build".
+2025-12-22T13:29:24.141Z astro:telemetry [notify] last notified on 1766403962409
+2025-12-22T13:29:26.230Z astro:Failed to load config with Node Error [ERR_MODULE_NOT_FOUND]: Cannot find package '@astrojs/tailwind' imported from C:\Users\mahim\.gemini\antigravity\scratch\portforio\portfolio-glass\astro.config.mjs
+    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:256:9)
+    at packageResolve (node:internal/modules/esm/resolve:768:81)
+    at moduleResolve (node:internal/modules/esm/resolve:854:18)
+    at defaultResolve (node:internal/modules/esm/resolve:984:11)
+    at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:780:12)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:704:25)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:687:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:305:38)
+    at ModuleJob._link (node:internal/modules/esm/module_job:137:49)
+2025-12-22T13:29:26.238Z vite:env loading env files: [
+  'C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/.env',
+  'C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/.env.local',
+  'C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/.env.development',
+  'C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/.env.development.local'
+]
+2025-12-22T13:29:26.239Z vite:env env files loaded in 1.96ms
+2025-12-22T13:29:26.242Z vite:env using resolved env: {}
+2025-12-22T13:29:26.279Z vite:config using resolved config: {
+  configFile: undefined,
+  server: {
+    port: 5173,
+    strictPort: false,
+    host: undefined,
+    allowedHosts: [],
+    https: undefined,
+    open: false,
+    proxy: undefined,
+    cors: {
+      origin: /^https?:\/\/(?:(?:[^:]+\.)?localhost|127\.0\.0\.1|\[::1\])(?::\d+)?$/
+    },
+    headers: {},
+    warmup: { clientFiles: [], ssrFiles: [] },
+    middlewareMode: true,
+    fs: {
+      strict: true,
+      deny: [ '.env', '.env.*', '*.{crt,pem}', '**/.git/**' ],
+      allow: [
+        'C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass'
+      ]
+    },
+    preTransformRequests: true,
+    perEnvironmentStartEndDuringDev: false,
+    sourcemapIgnoreList: [Function: isInNodeModules$1],
+    hmr: false,
+    watch: null,
+    ws: false
+  },
+  optimizeDeps: {
+    include: [],
+    exclude: [],
+    needsInterop: [],
+    extensions: [],
+    disabled: undefined,
+    holdUntilCrawlEnd: true,
+    force: false,
+    noDiscovery: true,
+    esbuildOptions: { preserveSymlinks: false }
+  },
+  clearScreen: false,
+  appType: 'custom',
+  ssr: {
+    target: 'node',
+    optimizeDeps: {
+      esbuildOptions: { preserveSymlinks: false },
+      include: [],
+      exclude: [],
+      needsInterop: [],
+      extensions: [],
+      holdUntilCrawlEnd: true,
+      force: false,
+      noDiscovery: true
+    },
+    external: true,
+    noExternal: [],
+    resolve: {
+      conditions: [ 'module', 'node', 'development|production' ],
+      externalConditions: [ 'node' ]
+    }
+  },
+  plugins: [
+    'vite:optimized-deps',
+    'vite:watch-package-data',
+    'vite:pre-alias',
+    'alias',
+    'vite:modulepreload-polyfill',
+    'vite:resolve',
+    'vite:html-inline-proxy',
+    'vite:css',
+    'vite:esbuild',
+    'vite:json',
+    'vite:wasm-helper',
+    'vite:worker',
+    'vite:asset',
+    'vite:wasm-fallback',
+    'vite:define',
+    'vite:css-post',
+    'vite:worker-import-meta-url',
+    'vite:asset-import-meta-url',
+    'vite:dynamic-import-vars',
+    'vite:import-glob',
+    'vite:client-inject',
+    'vite:css-analysis',
+    'vite:import-analysis'
+  ],
+  environments: {
+    client: {
+      define: undefined,
+      resolve: {
+        externalConditions: [ 'node' ],
+        extensions: [
+          '.mjs',  '.js',
+          '.mts',  '.ts',
+          '.jsx',  '.tsx',
+          '.json'
+        ],
+        dedupe: [],
+        noExternal: [],
+        external: [],
+        preserveSymlinks: false,
+        alias: [
+          {
+            find: /^\/?@vite\/env/,
+            replacement: '/@fs/C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/client/env.mjs'
+          },
+          {
+            find: /^\/?@vite\/client/,
+            replacement: '/@fs/C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/client/client.mjs'
+          }
+        ],
+        mainFields: [ 'browser', 'module', 'jsnext:main', 'jsnext' ],
+        conditions: [ 'module', 'browser', 'development|production' ],
+        builtins: []
+      },
+      keepProcessEnv: false,
+      consumer: 'client',
+      optimizeDeps: {
+        include: [],
+        exclude: [],
+        needsInterop: [],
+        extensions: [],
+        disabled: undefined,
+        holdUntilCrawlEnd: true,
+        force: false,
+        noDiscovery: true,
+        esbuildOptions: { preserveSymlinks: false }
+      },
+      dev: {
+        warmup: [],
+        sourcemap: { js: true },
+        sourcemapIgnoreList: [Function: isInNodeModules$1],
+        preTransformRequests: true,
+        createEnvironment: [Function: defaultCreateClientDevEnvironment],
+        recoverable: true,
+        moduleRunnerTransform: false
+      },
+      build: {
+        target: [ 'es2020', 'edge88', 'firefox78', 'chrome87', 'safari14' ],
+        polyfillModulePreload: true,
+        modulePreload: { polyfill: true },
+        outDir: 'dist',
+        assetsDir: 'assets',
+        assetsInlineLimit: 4096,
+        sourcemap: false,
+        terserOptions: {},
+        rollupOptions: {},
+        commonjsOptions: { include: [ /node_modules/ ], extensions: [ '.js', '.cjs' ] },
+        dynamicImportVarsOptions: { warnOnError: true, exclude: [ /node_modules/ ] },
+        write: true,
+        emptyOutDir: null,
+        copyPublicDir: true,
+        manifest: false,
+        lib: false,
+        ssrManifest: false,
+        ssrEmitAssets: false,
+        reportCompressedSize: true,
+        chunkSizeWarningLimit: 500,
+        watch: null,
+        cssCodeSplit: true,
+        minify: 'esbuild',
+        ssr: false,
+        emitAssets: true,
+        createEnvironment: [Function: createEnvironment],
+        cssTarget: [ 'es2020', 'edge88', 'firefox78', 'chrome87', 'safari14' ],
+        cssMinify: true
+      }
+    },
+    ssr: {
+      define: undefined,
+      resolve: {
+        externalConditions: [ 'node' ],
+        extensions: [
+          '.mjs',  '.js',
+          '.mts',  '.ts',
+          '.jsx',  '.tsx',
+          '.json'
+        ],
+        dedupe: [],
+        noExternal: [],
+        external: true,
+        preserveSymlinks: false,
+        alias: [
+          {
+            find: /^\/?@vite\/env/,
+            replacement: '/@fs/C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/client/env.mjs'
+          },
+          {
+            find: /^\/?@vite\/client/,
+            replacement: '/@fs/C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/client/client.mjs'
+          }
+        ],
+        mainFields: [ 'module', 'jsnext:main', 'jsnext' ],
+        conditions: [ 'module', 'node', 'development|production' ],
+        builtins: [
+          '_http_agent',         '_http_client',        '_http_common',
+          '_http_incoming',      '_http_outgoing',      '_http_server',
+          '_stream_duplex',      '_stream_passthrough', '_stream_readable',
+          '_stream_transform',   '_stream_wrap',        '_stream_writable',
+          '_tls_common',         '_tls_wrap',           'assert',
+          'assert/strict',       'async_hooks',         'buffer',
+          'child_process',       'cluster',             'console',
+          'constants',           'crypto',              'dgram',
+          'diagnostics_channel', 'dns',                 'dns/promises',
+          'domain',              'events',              'fs',
+          'fs/promises',         'http',                'http2',
+          'https',               'inspector',           'inspector/promises',
+          'module',              'net',                 'os',
+          'path',                'path/posix',          'path/win32',
+          'perf_hooks',          'process',             'punycode',
+          'querystring',         'readline',            'readline/promises',
+          'repl',                'stream',              'stream/consumers',
+          'stream/promises',     'stream/web',          'string_decoder',
+          'sys',                 'timers',              'timers/promises',
+          'tls',                 'trace_events',        'tty',
+          'url',                 'util',                'util/types',
+          'v8',                  'vm',                  'wasi',
+          'worker_threads',      'zlib',                /^node:/,
+          /^npm:/,               /^bun:/
+        ]
+      },
+      keepProcessEnv: true,
+      consumer: 'server',
+      optimizeDeps: {
+        include: [],
+        exclude: [],
+        needsInterop: [],
+        extensions: [],
+        disabled: undefined,
+        holdUntilCrawlEnd: true,
+        force: false,
+        noDiscovery: true,
+        esbuildOptions: { preserveSymlinks: false }
+      },
+      dev: {
+        warmup: [],
+        sourcemap: { js: true },
+        sourcemapIgnoreList: [Function: isInNodeModules$1],
+        preTransformRequests: false,
+        createEnvironment: [Function: defaultCreateDevEnvironment],
+        recoverable: false,
+        moduleRunnerTransform: true
+      },
+      build: {
+        target: [ 'es2020', 'edge88', 'firefox78', 'chrome87', 'safari14' ],
+        polyfillModulePreload: true,
+        modulePreload: { polyfill: true },
+        outDir: 'dist',
+        assetsDir: 'assets',
+        assetsInlineLimit: 4096,
+        sourcemap: false,
+        terserOptions: {},
+        rollupOptions: {},
+        commonjsOptions: { include: [ /node_modules/ ], extensions: [ '.js', '.cjs' ] },
+        dynamicImportVarsOptions: { warnOnError: true, exclude: [ /node_modules/ ] },
+        write: true,
+        emptyOutDir: null,
+        copyPublicDir: true,
+        manifest: false,
+        lib: false,
+        ssrManifest: false,
+        ssrEmitAssets: false,
+        reportCompressedSize: true,
+        chunkSizeWarningLimit: 500,
+        watch: null,
+        cssCodeSplit: true,
+        minify: false,
+        ssr: true,
+        emitAssets: false,
+        createEnvironment: [Function: createEnvironment],
+        cssTarget: [ 'es2020', 'edge88', 'firefox78', 'chrome87', 'safari14' ],
+        cssMinify: 'esbuild'
+      }
+    }
+  },
+  resolve: {
+    externalConditions: [ 'node' ],
+    extensions: [
+      '.mjs',  '.js',
+      '.mts',  '.ts',
+      '.jsx',  '.tsx',
+      '.json'
+    ],
+    dedupe: [],
+    noExternal: [],
+    external: [],
+    preserveSymlinks: false,
+    alias: [
+      {
+        find: /^\/?@vite\/env/,
+        replacement: '/@fs/C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/client/env.mjs'
+      },
+      {
+        find: /^\/?@vite\/client/,
+        replacement: '/@fs/C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/client/client.mjs'
+      }
+    ],
+    mainFields: [ 'browser', 'module', 'jsnext:main', 'jsnext' ],
+    conditions: [ 'module', 'browser', 'development|production' ],
+    builtins: []
+  },
+  configFileDependencies: [],
+  inlineConfig: {
+    configFile: false,
+    server: { middlewareMode: true, hmr: false, watch: null, ws: false },
+    optimizeDeps: { noDiscovery: true },
+    clearScreen: false,
+    appType: 'custom',
+    ssr: { external: true },
+    plugins: [ false ],
+    environments: {
+      client: {
+        define: undefined,
+        resolve: undefined,
+        dev: {},
+        build: undefined,
+        optimizeDeps: { noDiscovery: true }
+      },
+      ssr: {
+        define: undefined,
+        resolve: {
+          mainFields: undefined,
+          conditions: undefined,
+          external: true
+        },
+        dev: { createEnvironment: undefined, warmup: undefined },
+        build: { createEnvironment: undefined },
+        optimizeDeps: {}
+      }
+    },
+    resolve: { conditions: undefined, mainFields: undefined }
+  },
+  root: 'C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass',
+  base: '/',
+  decodedBase: '/',
+  rawBase: '/',
+  publicDir: 'C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/public',
+  cacheDir: 'C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/.vite',
+  command: 'serve',
+  mode: 'development',
+  isWorker: false,
+  mainConfig: null,
+  bundleChain: [],
+  isProduction: true,
+  css: {
+    transformer: 'postcss',
+    preprocessorMaxWorkers: 0,
+    devSourcemap: false
+  },
+  json: { namedExports: true, stringify: 'auto' },
+  esbuild: { jsxDev: false },
+  builder: undefined,
+  preview: {
+    port: 4173,
+    strictPort: false,
+    host: undefined,
+    allowedHosts: [],
+    https: undefined,
+    open: false,
+    proxy: undefined,
+    cors: {
+      origin: /^https?:\/\/(?:(?:[^:]+\.)?localhost|127\.0\.0\.1|\[::1\])(?::\d+)?$/
+    },
+    headers: {}
+  },
+  envDir: 'C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass',
+  env: { BASE_URL: '/', MODE: 'development', DEV: false, PROD: true },
+  assetsInclude: [Function: assetsInclude],
+  logger: {
+    hasWarned: false,
+    info: [Function: info],
+    warn: [Function: warn],
+    warnOnce: [Function: warnOnce],
+    error: [Function: error],
+    clearScreen: [Function: clearScreen],
+    hasErrorLogged: [Function: hasErrorLogged]
+  },
+  packageCache: Map(1) {
+    'fnpd_C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass' => {
+      dir: 'C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass',
+      data: {
+        name: 'portfolio-glass',
+        type: 'module',
+        version: '0.0.1',
+        scripts: {
+          dev: 'astro dev',
+          build: 'astro build',
+          preview: 'astro preview',
+          astro: 'astro'
+        },
+        dependencies: {
+          '@astrojs/check': '^0.9.6',
+          '@tailwindcss/vite': '^4.1.18',
+          astro: '^5.16.6',
+          tailwindcss: '^4.1.18',
+          typescript: '^5.9.3'
+        }
+      },
+      hasSideEffects: [Function: hasSideEffects],
+      setResolvedCache: [Function: setResolvedCache],
+      getResolvedCache: [Function: getResolvedCache]
+    },
+    set: [Function (anonymous)]
+  },
+  worker: { format: 'iife', plugins: '() => plugins', rollupOptions: {} },
+  experimental: { importGlobRestoreExtension: false, hmrPartialAccept: false },
+  future: undefined,
+  dev: {
+    warmup: [],
+    sourcemap: { js: true },
+    sourcemapIgnoreList: [Function: isInNodeModules$1],
+    preTransformRequests: false,
+    createEnvironment: [Function: defaultCreateDevEnvironment],
+    recoverable: false,
+    moduleRunnerTransform: false
+  },
+  build: {
+    target: [ 'es2020', 'edge88', 'firefox78', 'chrome87', 'safari14' ],
+    polyfillModulePreload: true,
+    modulePreload: { polyfill: true },
+    outDir: 'dist',
+    assetsDir: 'assets',
+    assetsInlineLimit: 4096,
+    sourcemap: false,
+    terserOptions: {},
+    rollupOptions: {},
+    commonjsOptions: { include: [ /node_modules/ ], extensions: [ '.js', '.cjs' ] },
+    dynamicImportVarsOptions: { warnOnError: true, exclude: [ /node_modules/ ] },
+    write: true,
+    emptyOutDir: null,
+    copyPublicDir: true,
+    manifest: false,
+    lib: false,
+    ssrManifest: false,
+    ssrEmitAssets: false,
+    reportCompressedSize: true,
+    chunkSizeWarningLimit: 500,
+    watch: null,
+    cssCodeSplit: true,
+    minify: 'esbuild',
+    ssr: false,
+    emitAssets: false,
+    createEnvironment: [Function: createEnvironment],
+    cssTarget: [ 'es2020', 'edge88', 'firefox78', 'chrome87', 'safari14' ],
+    cssMinify: true
+  },
+  webSocketToken: '6jrdWhXDmqHi',
+  getSortedPlugins: [Function: getSortedPlugins],
+  getSortedPluginHooks: [Function: getSortedPluginHooks],
+  createResolver: [Function: createResolver],
+  fsDenyGlob: [Function: arrayMatcher],
+  safeModulePaths: Set(0) {},
+  additionalAllowedHosts: [],
+  [Symbol(vite:resolved-config)]: true
+}
+2025-12-22T13:29:26.405Z vite:resolve [33m28.96ms[39m [36mC:\Users\mahim\.gemini\antigravity\scratch\portforio\portfolio-glass\astro.config.mjs[39m -> [2mC:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/astro.config.mjs[22m
+2025-12-22T13:29:26.416Z vite:load [32m5.56ms[39m [fs] [2mC:\Users\mahim\.gemini\antigravity\scratch\portforio\portfolio-glass\astro.config.mjs[22m
+2025-12-22T13:29:26.451Z vite:resolve [32m2.91ms[39m [36m@astrojs/tailwind[39m -> [2mnull[22m
+2025-12-22T13:29:26.455Z vite:import-analysis [33m30.13ms[39m [2m[1 imports rewritten] [2mastro.config.mjs[22m[2m[22m
+2025-12-22T13:29:26.455Z vite:transform [33m38.51ms[39m[2m [skipped] [2mC:\Users\mahim\.gemini\antigravity\scratch\portforio\portfolio-glass\astro.config.mjs[22m[2m[22m
+[2m22:29:26[22m [31m[1m[vite][22m[39m [31m[2m(ssr)[22m[39m [31mError when evaluating SSR module C:\Users\mahim\.gemini\antigravity\scratch\portforio\portfolio-glass\astro.config.mjs: Cannot find module '@astrojs/tailwind' imported from 'C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/astro.config.mjs'[39m
+      at fetchModule (file:///C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:46842:19)
+      at RunnableDevEnvironment.fetchModule (file:///C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:47933:12)
+      at fetchModule (file:///C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:47887:21)
+      at handleInvoke (file:///C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:39002:28)
+      at EventEmitter.listenerForInvokeHandler (file:///C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:39075:25)
+      at EventEmitter.emit (node:events:518:28)
+      at Object.send (file:///C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:25190:40)
+      at Object.invoke (file:///C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/node/module-runner.js:621:34)
+      at Object.invoke (file:///C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/node/module-runner.js:682:34)
+      at SSRCompatModuleRunner.getModuleInformation (file:///C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/node/module-runner.js:1205:94)
+[1m[31m[astro][39m[22m Unable to load your Astro config
+
+2025-12-22T13:29:26.663Z astro:telemetry {
+  context: {
+    isGit: false,
+    anonymousProjectId: '2ffe31bb76414cd3defb8a1cc23f17cd185c74233dec8f997554e5ce56e275ab',
+    packageManager: 'npm',
+    packageManagerVersion: '10.9.2',
+    anonymousId: '05d1ae77650c2fd8b8e86a02901b1cfb2306bdc1f05bb145165c8de0fd812da5',
+    anonymousSessionId: '0763f1c4debfa9ef0228229b9610c5926ef4f4f3759f3c5afde33f1ac44a57eb'
+  },
+  meta: {
+    nodeVersion: '22.16.0',
+    viteVersion: '6.4.1',
+    astroVersion: '5.16.6',
+    systemPlatform: 'win32',
+    systemRelease: '10.0.26100',
+    systemArchitecture: 'x64',
+    cpuCount: 12,
+    cpuModel: 'AMD Ryzen 5 5625U with Radeon Graphics         ',
+    cpuSpeed: 2296,
+    memoryInMb: 15720,
+    isDocker: false,
+    isTTY: undefined,
+    isWSL: false,
+    isCI: false,
+    ciName: null
+  }
+}
+2025-12-22T13:29:26.663Z astro:telemetry [
+  {
+    "eventName": "ASTRO_CLI_ERROR",
+    "payload": {
+      "name": "Error",
+      "cliCommand": "build",
+      "isFatal": true,
+      "anonymousMessageHint": "Cannot find module"
+    }
+  }
+]
+Cannot find module '@astrojs/tailwind' imported from 'C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/astro.config.mjs'
+  [1mLocation:[22m
+    [4mC:\Users\mahim\.gemini\antigravity\scratch\portforio\portfolio-glass\node_modules\astro\node_modules\vite\dist\node\chunks\dep-D4NMHUTW.js:46842:19[24m
+  [1mStack trace:[22m
+[2m    at fetchModule (file:///C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:46842:19)
+    at fetchModule (file:///C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:47887:21)
+    at EventEmitter.listenerForInvokeHandler (file:///C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:39075:25)
+    at Object.send (file:///C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:25190:40)
+    at Object.invoke (file:///C:/Users/mahim/.gemini/antigravity/scratch/portforio/portfolio-glass/node_modules/astro/node_modules/vite/dist/node/module-runner.js:682:34)[22m

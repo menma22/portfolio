@@ -89,51 +89,57 @@
     }
     
     /* レポートコンテンツのスタイリング */
-    .report-content h2 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-top: 2.5rem;
-        margin-bottom: 1rem;
-        padding-bottom: 0.75rem;
-        color: #1e40af;
-        border-bottom: 3px solid #3b82f6;
+    #modal-report h2 {
+        font-size: 1.5rem !important;
+        font-weight: 700 !important;
+        margin-top: 2.5rem !important;
+        margin-bottom: 1rem !important;
+        padding-bottom: 0.75rem !important;
+        color: #1e40af !important;
+        border-bottom: 3px solid #3b82f6 !important;
+        display: block !important;
     }
     
-    .report-content h2:first-child {
-        margin-top: 0;
+    #modal-report > .section:first-child h2:first-child,
+    #modal-report h2:first-of-type {
+        margin-top: 0 !important;
     }
     
-    .report-content h3 {
-        font-size: 1.125rem;
-        font-weight: 600;
-        margin-top: 1.5rem;
-        margin-bottom: 0.75rem;
-        padding-left: 1rem;
-        color: #1f2937;
-        border-left: 4px solid #8b5cf6;
+    #modal-report h3 {
+        font-size: 1.125rem !important;
+        font-weight: 600 !important;
+        margin-top: 1.5rem !important;
+        margin-bottom: 0.75rem !important;
+        padding-left: 1rem !important;
+        color: #1f2937 !important;
+        border-left: 4px solid #8b5cf6 !important;
+        display: block !important;
     }
     
-    .report-content p {
-        color: #374151;
-        line-height: 1.9;
-        margin-bottom: 1rem;
-        font-size: 1rem;
+    #modal-report p {
+        color: #374151 !important;
+        line-height: 1.9 !important;
+        margin-bottom: 1rem !important;
+        font-size: 1rem !important;
+        display: block !important;
     }
     
-    .report-content strong {
-        color: #111827;
-        font-weight: 600;
+    #modal-report strong {
+        color: #111827 !important;
+        font-weight: 600 !important;
     }
     
     /* セクション間のスペース */
-    .report-content .section {
-        margin-bottom: 2rem;
-        padding-bottom: 1.5rem;
-        border-bottom: 1px solid #e5e7eb;
+    #modal-report .section {
+        margin-bottom: 2.5rem !important;
+        padding-bottom: 2rem !important;
+        border-bottom: 1px solid #e5e7eb !important;
+        display: block !important;
     }
     
-    .report-content .section:last-child {
-        border-bottom: none;
+    #modal-report .section:last-child {
+        border-bottom: none !important;
+        margin-bottom: 0 !important;
     }
 </style>
 

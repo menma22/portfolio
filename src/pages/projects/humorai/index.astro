@@ -1,0 +1,117 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="HumorAI">
+  <main class="container mx-auto px-4 py-12 max-w-4xl">
+    <a href="/portfolio" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 mb-8 transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+      </svg>
+      <span>ポートフォリオに戻る</span>
+    </a>
+    
+    <article class="bg-white rounded-3xl shadow-xl border border-gray-200 overflow-hidden">
+      <div class="p-8 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-purple-50">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900">HumorAI</h1>
+      </div>
+      
+      <div class="p-8 prose prose-lg max-w-none">
+        <h2>1. プロジェクト概要</h2>
+        <ul>
+          <li><strong>コンセプト</strong><br/>「AIはもっと、面白くなれる。友達のように『阿吽の呼吸』でボケるAI」</li>
+          <li><strong>概要</strong><br/>OpenAIの最新モデル「GPT-4o」をファインチューニングし、文脈に応じた高度なユーモア（ボケ・ツッコミ）を出力できるモデルを開発。さらに、そのモデルを核とした「自律思考型お笑いエージェント」のアーキテクチャを設計。</li>
+          <li><strong>役割</strong><br/>プロジェクトリーダー / エージェントアーキテクト / データセット構築</li>
+          <li><strong>チーム構成</strong><br/>2名（自身＋友人）</li>
+        </ul>
+
+        <h2>2. 開発の背景・動機</h2>
+        <p><strong>「優等生なAIを、クラスの人気者に変えたい」</strong></p>
+        <p>既存のAIは「面白い話をして」と言えばジョークを言えますが、日常会話の文脈で自然にボケることはできません。「全ての局面でユーモアを交え、話していて楽しい友達のようなAI」を作るため、まずはLLMのファインチューニングによる「性格の改造」に着手しました。</p>
+
+        <h2>3. 実装フェーズ：多角的なデータセット戦略</h2>
+        <p>本プロジェクトで最も注力したのは、AIに「お笑い」を多面的に理解させるためのデータセット設計です。友人と協力して質の高いお笑いデータを収集し、以下の<strong>2パターンのデータセット</strong>を作成して学習させました。</p>
+        
+        <ul>
+          <li><strong>パターン1：ボケ生成能力の獲得（Generation Task）</strong><br/>
+            <strong>データ構造</strong>：入力 <strong>[フリ]</strong> → 出力 <strong>[オチ]</strong><br/>
+            <strong>目的</strong>：フリ（お題や会話）に対して、瞬発的に面白いオチ（ボケ・ツッコミ）を返す「実践的なボケ生成能力」を学習させました。</li>
+          <li><strong>パターン2：お笑い構造の理解（Understanding Task）</strong><br/>
+            <strong>データ構造</strong>：入力 <strong>[フリ ＋ オチ]</strong> → 出力 <strong>[解説]</strong><br/>
+            <strong>目的</strong>：「なぜそのボケが面白いのか」という論理的な理由（緊張と緩和、前提の崩しなど）を学習させました。</li>
+        </ul>
+        
+        <p>この2パターンを学習させることで、AIは単にボケるだけでなく、<strong>「自分のボケが面白いかどうか」を論理的に判断する指標（評価基準）</strong>を内部に持つことができました。これが後のエージェント設計における「自己評価」機能の基盤となっています。</p>
+
+        <h2>4. 設計フェーズ：エージェントアーキテクチャ</h2>
+        <p>学習済みモデルをコアに据え、より高度なボケを生み出すための<strong>「自律思考型アーキテクチャ」</strong>を設計しました（現在開発中）。</p>
+        
+        <h3>【お笑い生成のデュアルエンジン構想】</h3>
+        <p>人間が面白いことを思いつくプロセスを分析し、2つの経路でボケを生成・選定する仕組みを考案しました。</p>
+        
+        <p><strong>1. 普遍からの「ズラし」エンジン（Deviation Engine）</strong></p>
+        <ul>
+          <li>まずあえて「普遍的（普通）」な回答を生成させます。</li>
+          <li>そこから「逆説」「誇張」「言葉遊び」などのフィルタを通し、<strong>一気に100個以上のボケ候補</strong>を生成。</li>
+          <li>パターン2で獲得した「お笑い構造の理解」を用いてスコアリングし、最もギャップ（面白さ）があるものを採用します。</li>
+        </ul>
+        
+        <p><strong>2. 連想と概念結合エンジン（Association Engine）</strong></p>
+        <ul>
+          <li>入力された会話から「キーワード」を抽出。</li>
+          <li>検索や知識ベースを用いて、そこから連想される単語や、あえて概念をズラした関連語を広範囲に収集。</li>
+          <li>「遠い概念」同士を組み合わせることで、突拍子もない角度からのボケを生成します。</li>
+        </ul>
+        
+        <h3>【文脈活用：RAGによる「天丼」システム】</h3>
+        <p><strong>長期記憶とCall-back（天丼）</strong></p>
+        <p>会話履歴をVector Databaseに保存し、RAG（検索拡張生成）を用いて管理。「さっき盛り上がった話題」や「以前のボケ」を適切なタイミングで再検索して被せることで、お笑いの高等テクニックである「天丼（Call-back）」を実現するシステムを設計しました。</p>
+
+        <h2>5. 今後の展望</h2>
+        <p>現在はアーキテクチャの設計が完了し、実装に向けたプロトタイピングを進めています。</p>
+        <p>さらに、Web上の膨大なデータを活用したローカルLLMの<strong>「継続的事前学習（Continual Pre-training）」</strong>を行うことで、特定のAPIに依存せず、人間レベルの知識とユーモアを兼ね備えた完全自律型AIエージェントの完成を目指します。</p>
+
+        <h2>6. 使用技術・ツール</h2>
+        <ul>
+          <li><strong>LLM</strong>：OpenAI GPT-4o (Fine-tuning)</li>
+          <li><strong>MLOps</strong>：Weights & Biases (ログ監視・学習評価)</li>
+          <li><strong>Architecture (Planned)</strong>：RAG / Vector Database / Multi-Agent System</li>
+        </ul>
+      </div>
+      
+      <div class="p-8 border-t border-gray-200 bg-gray-50">
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="https://colab.research.google.com/drive/12qdjIENVTRI7poJj7z6zxD-Dv4060S7C?usp=sharing" target="_blank" rel="noopener noreferrer" 
+            class="flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-2xl 
+            bg-gradient-to-r from-blue-600 to-purple-600 
+            hover:from-blue-500 hover:to-purple-500
+            text-white font-semibold text-lg
+            shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40
+            transform hover:scale-[1.02] transition-all duration-300">
+            <span>Colabノートブックを開く</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+          </a>
+          <a href="/portfolio" 
+            class="flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-2xl 
+            bg-white hover:bg-gray-100
+            border border-gray-200 hover:border-gray-300
+            text-gray-700 font-semibold text-lg
+            transform hover:scale-[1.02] transition-all duration-300">
+            戻る
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style is:global>
+  .prose h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.75rem; color: #1e40af; border-bottom: 3px solid #3b82f6; }
+  .prose h2:first-of-type { margin-top: 0; }
+  .prose h3 { font-size: 1.125rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; padding-left: 1rem; color: #1f2937; border-left: 4px solid #8b5cf6; }
+  .prose ul { list-style: none; padding-left: 0; }
+  .prose ul > li { position: relative; padding-left: 1.5rem; margin-bottom: 1rem; }
+  .prose ul > li::before { content: "▸"; position: absolute; left: 0; color: #8b5cf6; font-weight: bold; }
+</style>

@@ -33,6 +33,13 @@ const projects = [
         projectUrl: "https://favorite-news-latter.vercel.app/",
         tags: ["Next.js", "AI Summary", "YouTube API", "Automation"]
     },
+    {
+        title: "HumorAI",
+        description: "GPT-4oをファインチューニングし、文脈に応じた高度なユーモアを出力できる「自律思考型お笑いエージェント」のアーキテクチャを設計。",
+        imageUrl: "/portfolio/images/humorai.png",
+        projectUrl: "https://colab.research.google.com/drive/12qdjIENVTRI7poJj7z6zxD-Dv4060S7C?usp=sharing",
+        tags: ["GPT-4o Fine-tuning", "Multi-Agent", "RAG", "W&B"]
+    },
 ];
 ---
 
@@ -57,7 +64,7 @@ const projects = [
                 Featured Works
             </h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
                 {projects.map((project) => (
                     <ProjectCard {...project} />
                 ))}

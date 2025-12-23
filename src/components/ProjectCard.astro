@@ -23,8 +23,8 @@ const reportSlug = slugMap[title] || '';
 const reportUrl = reportSlug ? `/portfolio/projects/${reportSlug}` : '';
 ---
 
-<a href={projectUrl} target="_blank" rel="noopener noreferrer" class="group block">
-    <div class="relative h-full rounded-3xl bg-white/30 border border-white/40 p-6 overflow-hidden backdrop-blur-xl shadow-xl transition-all duration-500 group-hover:scale-[1.02] group-hover:bg-white/50 group-hover:shadow-blue-500/10 group-hover:border-white/60">
+<div class="project-card-wrapper">
+    <div class="relative h-full rounded-3xl bg-white/30 border border-white/40 p-6 overflow-hidden backdrop-blur-xl shadow-xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/50 hover:shadow-blue-500/10 hover:border-white/60 group cursor-pointer" onclick={`window.open('${projectUrl}', '_blank')`}>
         
         <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"></div>
 
@@ -57,9 +57,9 @@ const reportUrl = reportSlug ? `/portfolio/projects/${reportSlug}` : '';
 
             <!-- 詳しい紹介を表示ボタン -->
             {reportUrl && (
-              <a 
-                href={reportUrl}
-                onclick="event.stopPropagation();"
+              <button 
+                type="button"
+                onclick={`event.stopPropagation(); window.location.href='${reportUrl}';`}
                 class="block w-full py-3 px-6 rounded-xl 
                     bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500
                     hover:from-blue-600 hover:via-purple-600 hover:to-pink-600
@@ -73,8 +73,8 @@ const reportUrl = reportSlug ? `/portfolio/projects/${reportSlug}` : '';
                   </svg>
                   詳しい紹介を表示
                 </span>
-              </a>
+              </button>
             )}
         </div>
     </div>
-</a>
+</div>

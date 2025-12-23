@@ -182,16 +182,10 @@
     }
 </style>
 
-<script>
-    import { marked } from 'marked';
-    
-    // markedの設定
-    marked.setOptions({
-        breaks: true,
-        gfm: true
-    });
-    
-    // モーダル制御スクリプト
+<!-- marked CDN -->
+<script is:inline src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script is:inline>
     const modal = document.getElementById('detail-modal');
     const modalOverlay = document.getElementById('modal-overlay');
     const modalClose = document.getElementById('modal-close');
@@ -200,11 +194,7 @@
     // ====================================================
     // 🎨 プロジェクト詳細データ（Markdown形式）
     // ====================================================
-    const projectDetails: Record<string, {
-        title: string;
-        projectUrl: string;
-        markdown: string;
-    }> = {
+    const projectDetails = {
         // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         // 📱 New Fashion - AI Look Book
         // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -429,34 +419,34 @@ YouTubeだけでなく、Web上のあらゆる情報を統合する「All-in-One
         // モーダルにデータを設定
         const modalTitle = document.getElementById('modal-title');
         const modalReport = document.getElementById('modal-report');
-        const modalLink = document.getElementById('modal-link') as HTMLAnchorElement;
+        const modalLink = document.getElementById('modal-link');
         
         if (modalTitle) modalTitle.textContent = project.title;
         if (modalReport) {
             // MarkdownをHTMLに変換
-            modalReport.innerHTML = marked.parse(project.markdown) as string;
+            modalReport.innerHTML = marked.parse(project.markdown);
         }
         if (modalLink) modalLink.href = project.projectUrl;
         
         // モーダルを表示
-        modal?.classList.add('active');
+        if (modal) modal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
     
     function closeModal() {
-        modal?.classList.remove('active');
+        if (modal) modal.classList.remove('active');
         document.body.style.overflow = '';
     }
     
     // イベントリスナー
-    modalOverlay?.addEventListener('click', closeModal);
-    modalClose?.addEventListener('click', closeModal);
-    modalCloseBtn?.addEventListener('click', closeModal);
+    if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
     
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closeModal();
     });
     
     // グローバルに公開
-    (window as any).openDetailModal = openModal;
+    window.openDetailModal = openModal;
 </script>

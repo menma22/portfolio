@@ -1,0 +1,268 @@
+---
+// src/components/DetailModal.astro
+// グラスモーフィズムの詳細レポートモーダルコンポーネント
+---
+
+<div id="detail-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+    <!-- オーバーレイ背景 -->
+    <div id="modal-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    
+    <!-- モーダルコンテンツ -->
+    <div id="modal-content" class="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl 
+        bg-gradient-to-br from-white/10 via-white/5 to-transparent
+        border border-white/20 
+        backdrop-blur-2xl 
+        shadow-[0_32px_64px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.1)]
+        transform transition-all duration-500 scale-95 opacity-0">
+        
+        <!-- ヘッダー部分 -->
+        <div class="sticky top-0 z-10 flex items-center justify-between p-6 border-b border-white/10 bg-white/5 backdrop-blur-xl">
+            <h2 id="modal-title" class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-purple-200">
+                プロダクト詳細
+            </h2>
+            <button id="modal-close" class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors group">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-400 group-hover:text-white transition-colors">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- コンテンツ本体 -->
+        <div class="p-8 space-y-8">
+            <!-- プロジェクト画像 -->
+            <div class="aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+                <img id="modal-image" src="" alt="" class="w-full h-full object-cover object-top" />
+            </div>
+            
+            <!-- 概要セクション -->
+            <div class="glass-section">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/10">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-blue-300">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white">概要</h3>
+                </div>
+                <p id="modal-description" class="text-gray-300 leading-relaxed"></p>
+            </div>
+            
+            <!-- 特徴セクション -->
+            <div class="glass-section">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 rounded-xl bg-gradient-to-br from-green-500/20 to-teal-500/20 border border-white/10">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-green-300">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white">主な特徴</h3>
+                </div>
+                <ul id="modal-features" class="space-y-3"></ul>
+            </div>
+            
+            <!-- 技術スタック -->
+            <div class="glass-section">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 rounded-xl bg-gradient-to-br from-orange-500/20 to-red-500/20 border border-white/10">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-orange-300">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white">技術スタック</h3>
+                </div>
+                <div id="modal-tech" class="flex flex-wrap gap-3"></div>
+            </div>
+            
+            <!-- ターゲットユーザー -->
+            <div class="glass-section">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 rounded-xl bg-gradient-to-br from-pink-500/20 to-purple-500/20 border border-white/10">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-pink-300">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white">ターゲットユーザー</h3>
+                </div>
+                <p id="modal-target" class="text-gray-300 leading-relaxed"></p>
+            </div>
+            
+            <!-- アクションボタン -->
+            <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" 
+                    class="flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-2xl 
+                    bg-gradient-to-r from-blue-500 to-purple-500 
+                    hover:from-blue-400 hover:to-purple-400
+                    text-white font-semibold text-lg
+                    shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40
+                    transform hover:scale-[1.02] transition-all duration-300">
+                    <span>サイトを開く</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                    </svg>
+                </a>
+                <button id="modal-close-btn" 
+                    class="flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-2xl 
+                    bg-white/10 hover:bg-white/20
+                    border border-white/20 hover:border-white/30
+                    text-white font-semibold text-lg
+                    transform hover:scale-[1.02] transition-all duration-300">
+                    閉じる
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .glass-section {
+        @apply p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm;
+    }
+    
+    #detail-modal.active {
+        display: flex;
+    }
+    
+    #detail-modal.active #modal-content {
+        transform: scale(1);
+        opacity: 1;
+    }
+    
+    /* スクロールバーのスタイリング */
+    #modal-content::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    #modal-content::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    #modal-content::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+    }
+    
+    #modal-content::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+</style>
+
+<script>
+    // モーダル制御スクリプト
+    const modal = document.getElementById('detail-modal');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalClose = document.getElementById('modal-close');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    
+    // ====================================================
+    // 🎨 プロジェクト詳細データ（ここを編集してください！）
+    // ====================================================
+    const projectDetails: Record<string, {
+        title: string;
+        description: string;
+        imageUrl: string;
+        projectUrl: string;
+        features: string[];
+        techStack: string[];
+        targetUsers: string;
+    }> = {
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // 📱 New Fashion - AI Look Book
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        'New Fashion - AI Look Book': {
+            title: 'New Fashion - AI Look Book',
+            description: '【ここに詳しい説明を書いてください】',
+            imageUrl: '/portfolio/images/fashion-lookbook.png',
+            projectUrl: 'https://ai-vr-fashion-try-on-7ssg.bolt.host/coordinate',
+            features: [
+                '【特徴1を書いてください】',
+                '【特徴2を書いてください】',
+                '【特徴3を書いてください】',
+            ],
+            techStack: ['React', 'TypeScript', 'AI/ML', 'Bolt.new'],
+            targetUsers: '【ターゲットユーザーを書いてください】'
+        },
+        
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // 🏕️ Vagabonds Camp
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        'Vagabonds Camp': {
+            title: 'Vagabonds Camp',
+            description: '【ここに詳しい説明を書いてください】',
+            imageUrl: '/portfolio/images/vagabonds-camp.png',
+            projectUrl: 'https://vagabonds-camp.vercel.app/',
+            features: [
+                '【特徴1を書いてください】',
+                '【特徴2を書いてください】',
+                '【特徴3を書いてください】',
+            ],
+            techStack: ['Next.js', 'TypeScript', 'Vercel', 'Prisma'],
+            targetUsers: '【ターゲットユーザーを書いてください】'
+        }
+        
+        // 🆕 新しいプロジェクトを追加する場合は、上記を参考にしてください！
+    };
+    
+    function openModal(projectTitle: string) {
+        const project = projectDetails[projectTitle];
+        if (!project) return;
+        
+        // モーダルにデータを設定
+        const modalTitle = document.getElementById('modal-title');
+        const modalImage = document.getElementById('modal-image') as HTMLImageElement;
+        const modalDescription = document.getElementById('modal-description');
+        const modalFeatures = document.getElementById('modal-features');
+        const modalTech = document.getElementById('modal-tech');
+        const modalTarget = document.getElementById('modal-target');
+        const modalLink = document.getElementById('modal-link') as HTMLAnchorElement;
+        
+        if (modalTitle) modalTitle.textContent = project.title;
+        if (modalImage) {
+            modalImage.src = project.imageUrl;
+            modalImage.alt = project.title;
+        }
+        if (modalDescription) modalDescription.textContent = project.description;
+        
+        if (modalFeatures) {
+            modalFeatures.innerHTML = project.features.map(feature => `
+                <li class="flex items-start gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-gray-300">${feature}</span>
+                </li>
+            `).join('');
+        }
+        
+        if (modalTech) {
+            modalTech.innerHTML = project.techStack.map(tech => `
+                <span class="px-4 py-2 rounded-xl bg-gradient-to-r from-orange-500/10 to-red-500/10 border border-orange-500/20 text-orange-200 font-medium">
+                    ${tech}
+                </span>
+            `).join('');
+        }
+        
+        if (modalTarget) modalTarget.textContent = project.targetUsers;
+        if (modalLink) modalLink.href = project.projectUrl;
+        
+        // モーダルを表示
+        modal?.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal() {
+        modal?.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // イベントリスナー
+    modalOverlay?.addEventListener('click', closeModal);
+    modalClose?.addEventListener('click', closeModal);
+    modalCloseBtn?.addEventListener('click', closeModal);
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+    });
+    
+    // グローバルに公開
+    (window as any).openDetailModal = openModal;
+</script>

@@ -2,6 +2,7 @@
 // src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import DetailModal from '../components/DetailModal.astro';
 
 // プロジェクトデータ（本来はCMSや別ファイルから取得しても良い）
 const projects = [
@@ -51,6 +52,9 @@ const projects = [
             </div>
         </section>
 	</main>
+
+    <!-- 詳細レポートモーダル -->
+    <DetailModal />
     
     <footer class="text-center py-10 text-gray-500 text-sm border-t border-white/5 mt-20 backdrop-blur-sm">
         <p>© 2025 Mahiro. All rights reserved.</p>

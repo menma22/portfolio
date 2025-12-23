@@ -1,0 +1,90 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="UNESCO Globe">
+  <main class="container mx-auto px-4 py-12 max-w-4xl">
+    <a href="/portfolio" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 mb-8 transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+      </svg>
+      <span>ポートフォリオに戻る</span>
+    </a>
+    
+    <article class="bg-white rounded-3xl shadow-xl border border-gray-200 overflow-hidden">
+      <div class="p-8 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-purple-50">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900">UNESCO Globe</h1>
+      </div>
+      
+      <div class="p-8 prose prose-lg max-w-none">
+        <h2>1. プロダクト概要</h2>
+        <ul>
+          <li><strong>コンセプト</strong><br/>「世界遺産の壮大さを、掌の上で回す」</li>
+          <li><strong>概要</strong><br/>Webブラウザ上で動作するインタラクティブな3D地球儀。世界遺産の座標がマッピングされており、タップするとその場所へ地球が回転し、詳細が表示されるビジュアル・アプリケーション。</li>
+          <li><strong>目的</strong><br/>最新AIモデル（Gemini 3）のコーディング能力、特に3Dグラフィックス領域におけるベンチマーク検証。</li>
+        </ul>
+
+        <h2>2. 開発の動機・背景</h2>
+        <p><strong>「最新AIは、高度な3D描画を理解できるのか？」</strong></p>
+        <p>私は新しいAIモデルがリリースされるたびに、その限界を知るための「ベンチマーク開発」を行っています。以前のモデルでは、Three.jsを用いた「3Dの球体生成」や「衛星写真のテクスチャマッピング（球体への貼り付け）」といった空間認識を伴うコード生成は精度が低く、実装には多くの修正が必要でした。</p>
+        <p>「最新の『Gemini 3』ならば、この壁を越えられるのではないか？」という技術的な問いから、複雑な3D処理を要するこのアプリの開発に着手しました。</p>
+
+        <h2>3. 技術的な検証とプロセス</h2>
+        <h3>「One-Shot」精度の向上と対話による修正</h3>
+        <p>検証の結果、Gemini 3は初期プロンプトだけで「球体の生成」から「座標計算」までの骨格をほぼ一発で出力することに成功しました。一方で、生成された地球儀が真っ暗になる（テクスチャが反映されない）などのバグも発生しましたが、AIと対話しながら「光源の設定」や「マテリアルのプロパティ」を調整することで解決。</p>
+        <p>このプロセスを通じ、AIを単なるコード生成機としてだけでなく、<strong>「3D開発のペアプログラミング相手」</strong>として活用するノウハウを蓄積しました。</p>
+
+        <h2>4. こだわりの機能・UX</h2>
+        <p><strong>世界遺産にふさわしい「壮大さ」の表現</strong></p>
+        <p>単なる地図アプリではなく、世界遺産の持つ「歴史」や「スケール感」を感じられるアートワークとして設計しました。</p>
+        
+        <h3>衛星写真マッピングと3Dアニメーション</h3>
+        <p>Three.jsを使用し、リアルな衛星写真を球体にマッピング。遺産を選択すると、地球儀が滑らかに回転してその地点を画面中央に捉えるカメラワークを実装し、没入感を高めました。</p>
+        
+        <h3>没入感を高めるUIデザイン</h3>
+        <p>情報はシンプルに表示し、あくまで「地球」が主役となるデザインを意識。宇宙から地球を眺めているような、知的で洗練されたビジュアル体験を目指しました。</p>
+
+        <h2>5. プロジェクトを通しての学び</h2>
+        <h3>3Dライブラリ（Three.js）の理解</h3>
+        <p>AIにコードを書かせるだけでなく、生成されたコード（メッシュ、ジオメトリ、マテリアル、カメラ座標系など）を読み解くことで、3Dグラフィックスの基礎原理を深く理解しました。</p>
+        
+        <h3>AIとの共創</h3>
+        <p>最新モデルの「得意なこと（論理構築）」と「苦手なこと（微細なレンダリング設定）」を肌感覚で理解し、エンジニアがどこを補うべきかという勘所を養いました。</p>
+      </div>
+      
+      <div class="p-8 border-t border-gray-200 bg-gray-50">
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="https://menma22.github.io/unesco-globe/" target="_blank" rel="noopener noreferrer" 
+            class="flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-2xl 
+            bg-gradient-to-r from-blue-600 to-purple-600 
+            hover:from-blue-500 hover:to-purple-500
+            text-white font-semibold text-lg
+            shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40
+            transform hover:scale-[1.02] transition-all duration-300">
+            <span>サイトを開く</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+          </a>
+          <a href="/portfolio" 
+            class="flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-2xl 
+            bg-white hover:bg-gray-100
+            border border-gray-200 hover:border-gray-300
+            text-gray-700 font-semibold text-lg
+            transform hover:scale-[1.02] transition-all duration-300">
+            戻る
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style is:global>
+  .prose h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.75rem; color: #1e40af; border-bottom: 3px solid #3b82f6; }
+  .prose h2:first-of-type { margin-top: 0; }
+  .prose h3 { font-size: 1.125rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; padding-left: 1rem; color: #1f2937; border-left: 4px solid #8b5cf6; }
+  .prose ul { list-style: none; padding-left: 0; }
+  .prose ul > li { position: relative; padding-left: 1.5rem; margin-bottom: 1rem; }
+  .prose ul > li::before { content: "▸"; position: absolute; left: 0; color: #8b5cf6; font-weight: bold; }
+</style>

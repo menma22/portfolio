@@ -2,7 +2,6 @@
 // src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import DetailModal from '../components/DetailModal.astro';
 
 // プロジェクトデータ（本来はCMSや別ファイルから取得しても良い）
 const projects = [
@@ -20,7 +19,6 @@ const projects = [
         projectUrl: "https://vagabonds-camp.vercel.app/",
         tags: ["Next.js", "Vercel", "Team Collaboration", "Meeting Management"]
     },
-    // 他のプロジェクト...
     {
         title: "UNESCO-VIEW",
         description: "3D地球儀で巡るユネスコ世界遺産の旅。美しく没入感のあるインターフェースで、世界中の遺産を探索できます。",
@@ -66,11 +64,9 @@ const projects = [
             </div>
         </section>
 	</main>
-
-    <!-- 詳細レポートモーダル -->
-    <DetailModal />
     
     <footer class="text-center py-10 text-gray-500 text-sm border-t border-gray-200 mt-20 backdrop-blur-sm">
         <p>© 2025 Mahiro. All rights reserved.</p>
     </footer>
 </Layout>
+

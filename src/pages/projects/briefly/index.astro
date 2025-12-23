@@ -1,0 +1,103 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="BRIEFLY">
+  <main class="container mx-auto px-4 py-12 max-w-4xl">
+    <a href="/portfolio" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 mb-8 transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+      </svg>
+      <span>ポートフォリオに戻る</span>
+    </a>
+    
+    <article class="bg-white rounded-3xl shadow-xl border border-gray-200 overflow-hidden">
+      <div class="p-8 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-purple-50">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900">BRIEFLY</h1>
+      </div>
+      
+      <div class="p-8 prose prose-lg max-w-none">
+        <h2>1. プロダクト概要</h2>
+        <ul>
+          <li><strong>コンセプト</strong><br/>「検索する時間はもう古い。世界中の情報を、AIがあなたにデリバリー」</li>
+          <li><strong>概要</strong><br/>YouTube、Webニュース、プレスリリースなど、分散する情報をAIが自動で収集・選別・要約する「自分専用のインテリジェンス・プラットフォーム」。</li>
+          <li><strong>現在のステータス</strong><br/>第一弾として、最も時間コストのかかる「YouTube動画」の自動要約機能を実装・公開中。</li>
+        </ul>
+
+        <h2>2. 開発のきっかけ・背景</h2>
+        <p><strong>「情報の洪水（Information Overload）をハックする」</strong></p>
+        <p>現代は情報に溢れており、有益な情報を逃さずキャッチアップすることは困難です。特にAIなどの技術トレンドは、毎日大量のYouTube動画や記事で発信されますが、それらを全て視聴・検索して回るのは物理的に不可能です。また、「AI活用のハッカソン」や「注目企業のプレスリリース」など、少し目を離した隙に重要な機会を逃してしまう経験も多々ありました。</p>
+        <p>「人間が情報を探しに行くのではなく、情報の方から人間に届くべきだ」と考え、能動的な「検索」をなくし、待っているだけで必要な情報が集まるツールを目指して開発を始めました。</p>
+
+        <h2>3. 現在の解決策・主な機能</h2>
+        <p>まずは情報の密度が高く、最も消化に時間がかかる「動画コンテンツ」の攻略から着手しました。</p>
+        
+        <h3>YouTube情報の自動レポート化</h3>
+        <p>登録したチャンネルの更新を検知し、Gemini APIを用いて「要約」と「詳細レポート」を即座に生成します。「見る」のではなく「読む」ことで、情報収集時間を1/10に圧縮します。</p>
+        
+        <h3>要約と詳細の2段階表示</h3>
+        <ul>
+          <li><strong>要約</strong><br/>「見る価値があるか？」を30秒で判断するためのサマリー。</li>
+          <li><strong>詳細レポート</strong><br/>動画内の重要な発言や数値を細部までトレースした長文レポート。</li>
+        </ul>
+        
+        <h3>モダンなUI設計</h3>
+        <p>大量の情報をストレスなく処理できるよう、アコーディオン（折りたたみ）UIを採用。必要な情報だけを展開して読めるようにし、情報の視認性を高めました。</p>
+
+        <h2>4. 技術的な挑戦・工夫</h2>
+        <h3>二重生成を防ぐ排他制御ロジック</h3>
+        <p>自動更新システムにおいて、同じ動画のレポートが重複して生成される問題が発生しました。APIコストの無駄を防ぐため、生成前に「Video ID」と「動画タイトル」の二重チェックを行うロジックを実装。無駄なAPIコールを完全に防ぎ、運用の安定性を高めました。</p>
+        
+        <h3>YouTube API × Gemini APIの連携</h3>
+        <p>字幕データの取得からAIへのプロンプト投入、翻訳（多言語対応）までをパイプライン化。特に字幕がない動画への対応や、長時間の動画をコンテキストウィンドウに収める工夫を行いました。</p>
+        
+        <h3>BYOK（Bring Your Own Key）モデル</h3>
+        <p>ユーザー自身のGemini APIキーを利用する設計にし、学生開発ながら持続可能な運用モデルを構築しました。</p>
+
+        <h2>5. 今後の展望・構想</h2>
+        <p><strong>「検索」の完全自動化プラットフォームへ</strong></p>
+        <p>YouTubeだけでなく、Web上のあらゆる情報を統合する「All-in-One 情報収集エージェント」への進化を開発中です。</p>
+        
+        <h3>AI検索エージェント（Autonomous Search Agent）</h3>
+        <p>ユーザーが気になっているキーワード（例：「○○のライブ情報」「株式会社△△のプレスリリース」）を登録しておくだけで、AIエージェントが毎日Web全体を巡回・検索します。</p>
+        
+        <h3>「待ち」の情報収集体験</h3>
+        <p>単に検索結果を羅列するのではなく、前回との差分や重要度をAIが判断。「新しいライブが決まりました！」といった価値ある情報だけを選別して通知します。これにより、ユーザーは検索する手間をゼロにし、<strong>「待っているだけで、世界で一番早く欲しい情報が届く」</strong>体験を実現します。</p>
+      </div>
+      
+      <div class="p-8 border-t border-gray-200 bg-gray-50">
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="https://favorite-news-latter.vercel.app/" target="_blank" rel="noopener noreferrer" 
+            class="flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-2xl 
+            bg-gradient-to-r from-blue-600 to-purple-600 
+            hover:from-blue-500 hover:to-purple-500
+            text-white font-semibold text-lg
+            shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40
+            transform hover:scale-[1.02] transition-all duration-300">
+            <span>サイトを開く</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+          </a>
+          <a href="/portfolio" 
+            class="flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-2xl 
+            bg-white hover:bg-gray-100
+            border border-gray-200 hover:border-gray-300
+            text-gray-700 font-semibold text-lg
+            transform hover:scale-[1.02] transition-all duration-300">
+            戻る
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style is:global>
+  .prose h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.75rem; color: #1e40af; border-bottom: 3px solid #3b82f6; }
+  .prose h2:first-of-type { margin-top: 0; }
+  .prose h3 { font-size: 1.125rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; padding-left: 1rem; color: #1f2937; border-left: 4px solid #8b5cf6; }
+  .prose ul { list-style: none; padding-left: 0; }
+  .prose ul > li { position: relative; padding-left: 1.5rem; margin-bottom: 1rem; }
+  .prose ul > li::before { content: "▸"; position: absolute; left: 0; color: #8b5cf6; font-weight: bold; }
+</style>

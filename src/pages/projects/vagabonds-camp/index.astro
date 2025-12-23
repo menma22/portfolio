@@ -1,0 +1,123 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="Vagabonds Camp">
+  <main class="container mx-auto px-4 py-12 max-w-4xl">
+    <!-- 戻るボタン -->
+    <a href="/portfolio" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 mb-8 transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+      </svg>
+      <span>ポートフォリオに戻る</span>
+    </a>
+    
+    <article class="bg-white rounded-3xl shadow-xl border border-gray-200 overflow-hidden">
+      <div class="p-8 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-purple-50">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Vagabonds Camp</h1>
+      </div>
+      
+      <div class="p-8 prose prose-lg max-w-none">
+        <h2>1. プロダクト概要</h2>
+        <ul>
+          <li><strong>コンセプト</strong><br/>「月額1000円の壁を壊す。学生のための、完全無料・高性能AI議事録」</li>
+          <li><strong>概要</strong><br/>Gemini APIの無料枠を活用し、既存の有料ツール同等の議事録作成・タスク管理を「実質0円」で提供するWeb完結型のSaaS。</li>
+          <li><strong>ターゲット</strong><br/>予算はないが活動を効率化したい大学生チーム、研究室（ゼミ）、サークル。</li>
+        </ul>
+
+        <h2>2. 開発のきっかけ・背景</h2>
+        <p><strong>「便利な技術は、資金力のある企業だけでなく、学生こそが自由に使えるべきだ」</strong></p>
+        <p>既存のAI議事録ツールは非常に便利ですが、月額1000円〜という価格設定は、収入の少ない学生にとって高いハードルです。「技術的には低コストで実現可能なはずなのに、なぜ学生が使えないのか？」という疑問から開発をスタートしました。</p>
+        <p>また、私自身が会議中にメモを取ることに必死で、肝心の「議論」や「会話」に集中できていないという課題もありました。会話に含まれる個人の思考やアイデンティティをデジタル資産として残すためにも、誰もが手軽に使える議事録ツールが必要だと考えました。</p>
+
+        <h2>3. 解決策（ビジネスモデル）</h2>
+        <h3>ユーザー自身のAPIキーを使う「BYOKモデル」</h3>
+        <p>サービス側でAPIコストを負担するのではなく、ユーザー自身がGeminiのAPIキー（無料枠）を入力して利用する仕組みを採用しました。これにより、開発者の運用コストをゼロにしつつ、ユーザーは最新の高性能AI（Gemini 3.0 preview）を無料である程度制限なく使えるようにし、学生にとって理想的なSaaSを実現しました。</p>
+
+        <h2>4. 技術的な工夫・実装詳細</h2>
+        <p>単に「文字起こしをする」だけでなく、システムとして使いやすくするために以下の工夫を凝らしました。</p>
+        
+        <h3>JSON出力による機能連携（プロンプトエンジニアリング）</h3>
+        <p>AIへの指示（プロンプト）を調整し、出力を単なる文章ではなく、厳密な「JSON形式」で返させるように設計しました。これにより、議事録の本文とは別に「To-Doリスト」や「決定事項」をデータとしてきれいに抽出することに成功。アプリ上のタスク管理機能へ、自動的にTo-Doが登録される仕組みを作りました。</p>
+        
+        <h3>マークダウンと目次の自動生成</h3>
+        <p>長時間の会議でも振り返りやすいよう、出力形式をマークダウンに指定。さらに、見出しタグを解析して「目次」を自動生成する機能を実装しました。ユーザーは目次をクリックするだけで、聞きたいトピックへ瞬時に飛ぶことができます。</p>
+        
+        <h3>データ消失を防ぐ「保存優先」のアーキテクチャ</h3>
+        <p>開発当初、AIの生成エラー時に録音データごと消えてしまう問題がありました。そこで処理フローを見直し、<strong>「まず音声データをSupabaseに保存する」</strong>ことを最優先にしました。その上でAI処理を走らせることで、もし生成に失敗しても、保存されたデータから何度でも「再試行」ができるようになり、大事な会議データが絶対に消えない信頼性を担保しました。</p>
+
+        <h2>5. ユーザーからのフィードバックと改善</h2>
+        <p>実際に大学の友人や知人にこのアプリを使ってもらいました。「AIってこんなに便利なんだ！」と、AIの可能性を肌で感じてもらえた時は本当に嬉しかったです。</p>
+        <p>しかし、運用していく中で<strong>「録音した音声データを後からダウンロードできないのが不便だ」</strong>という厳しい意見も貰いました。そこで、すぐにバックエンドの処理を見直し、音声ファイルのダウンロード機能を実装して再度使ってもらいました。</p>
+        <p>その結果、「これで安心して使える」と言ってもらえ、<strong>「アプリは作って終わりではなく、ユーザーの声を聞いて改善し続けることで、初めて本当の価値が生まれる」</strong>ということを深く学びました。</p>
+
+        <h2>6. 今後の展望</h2>
+        <h3>会話データの資産化（ライフログ）</h3>
+        <p>会議だけでなく、日常会話も常時録音・蓄積できる機能を実装予定です。蓄積された膨大なデータを将来的にAIに学習させ、自分の思考や知識を完全に外部化した「自分専用AIエージェント」を作ることを目指しています。</p>
+        
+        <h3>Voice to Action</h3>
+        <p>スマホに話しかけるだけで、カレンダー登録やToDo消化が完了する音声インターフェースの拡充を進めていきます。</p>
+      </div>
+      
+      <div class="p-8 border-t border-gray-200 bg-gray-50">
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="https://vagabonds-camp.vercel.app/" target="_blank" rel="noopener noreferrer" 
+            class="flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-2xl 
+            bg-gradient-to-r from-blue-600 to-purple-600 
+            hover:from-blue-500 hover:to-purple-500
+            text-white font-semibold text-lg
+            shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40
+            transform hover:scale-[1.02] transition-all duration-300">
+            <span>サイトを開く</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+          </a>
+          <a href="/portfolio" 
+            class="flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-2xl 
+            bg-white hover:bg-gray-100
+            border border-gray-200 hover:border-gray-300
+            text-gray-700 font-semibold text-lg
+            transform hover:scale-[1.02] transition-all duration-300">
+            戻る
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style is:global>
+  .prose h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    color: #1e40af;
+    border-bottom: 3px solid #3b82f6;
+  }
+  .prose h2:first-of-type { margin-top: 0; }
+  .prose h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+    color: #1f2937;
+    border-left: 4px solid #8b5cf6;
+  }
+  .prose ul { list-style: none; padding-left: 0; }
+  .prose ul > li { position: relative; padding-left: 1.5rem; margin-bottom: 1rem; }
+  .prose ul > li::before { content: "▸"; position: absolute; left: 0; color: #8b5cf6; font-weight: bold; }
+  .prose blockquote {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-left: 4px solid #f59e0b;
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: normal;
+  }
+  .prose blockquote p { color: #92400e; margin-bottom: 0.5rem; }
+  .prose blockquote p:last-child { margin-bottom: 0; }
+</style>

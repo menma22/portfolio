@@ -1,0 +1,144 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout title="New Fashion - AI Look Book">
+  <main class="container mx-auto px-4 py-12 max-w-4xl">
+    <!-- 戻るボタン -->
+    <a href="/portfolio" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 mb-8 transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+      </svg>
+      <span>ポートフォリオに戻る</span>
+    </a>
+    
+    <!-- レポートコンテンツ -->
+    <article class="bg-white rounded-3xl shadow-xl border border-gray-200 overflow-hidden">
+      <!-- ヘッダー -->
+      <div class="p-8 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-purple-50">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900">New Fashion - AI Look Book</h1>
+      </div>
+      
+      <!-- Markdownコンテンツ -->
+      <div class="p-8 prose prose-lg max-w-none">
+        <h2>1. プロダクト概要</h2>
+        <ul>
+          <li><strong>コンセプト</strong><br/>「買う前に、着る。ファッションECの新しいスタンダード」</li>
+          <li><strong>概要</strong><br/>生成AI（Gemini API）を活用し、自分の写真に気になった服を自然に合成できるバーチャル試着アプリケーション。試着から購入、コーデ共有までをワンストップで提供します。</li>
+        </ul>
+
+        <h2>2. 開発のきっかけ・背景</h2>
+        <p><strong>「ネット通販の『思ってたのと違う』をなくしたい」</strong></p>
+        <p>私自身ファッションが大好きですが、ECサイトでの購入には常に「サイズ感や雰囲気が自分に合うか分からない」というリスクが伴います。「買ってみたけど着なかった」という失敗や、返品の手間を減らしたいと強く思っていました。</p>
+        <p>そんな中、<strong>Gemini Nano / Pro</strong>（生成AI）の画像生成能力に触れ、「これを応用すれば、実際に服を着なくても、まるで着ているかのような自然な試着画像が作れるのではないか？」と確信し、開発に着手しました。</p>
+
+        <h2>3. 主な機能と体験</h2>
+        <ul>
+          <li><strong>AIバーチャル試着（Virtual Try-On）</strong><br/>ユーザーの全身写真と、ECサイト上の服の画像をAIに読み込ませることで、瞬時に着用画像を生成。「自分の手持ちの服に、新しい服が合うか」を視覚的に確認できます。</li>
+          <li><strong>バーチャル・クローゼット</strong><br/>気になった服や生成したコーデ画像をSupabase上に保存。購入前の検討リストとしてだけでなく、手持ち服の管理ツールとしても機能します。</li>
+          <li><strong>コーデシェアSNS（構想・一部実装）</strong><br/>作成したバーチャルコーデをInstagramのようにシェアできる機能。「服を買うお金がなくても、センスだけで勝負できる」世界観を目指し、インフルエンサーがバーチャル上でスタイリングを提案できるプラットフォームを構想しました。</li>
+        </ul>
+
+        <h2>4. 技術的な課題と考察</h2>
+        <h3>「見た目」と「物理的なサイズ感」の壁</h3>
+        <p>開発を通して直面した最大の課題は、<strong>「生成AIは『着ている風』の画像を作るのは得意だが、厳密な『サイズ感（着丈・袖丈）』の再現は苦手である」</strong>という点です。</p>
+        <p>AIはピクセル単位の合成は行いますが、物理シミュレーションを行っているわけではないため、「SサイズとMサイズの違い」などを正確に描写することに限界を感じました。これは現在のファッションテック業界全体の課題でもありますが、今後は3Dモデリング技術との併用などで解決策を探っていきたいと考えています。</p>
+
+        <h2>5. 現在のステータスについて（重要）</h2>
+        <blockquote>
+          <p><strong>※ポートフォリオ閲覧時の注意点</strong></p>
+          <p>本アプリはSupabaseの無料枠（プロジェクト数上限）の関係で、現在はデータベース接続を停止した<strong>「アーカイブモード（UI確認用）」</strong>として公開しています。データの保存や新規の試着生成は行えませんが、フロントエンドのデザインや画面遷移の挙動はご確認いただけます。</p>
+        </blockquote>
+      </div>
+      
+      <!-- アクションボタン -->
+      <div class="p-8 border-t border-gray-200 bg-gray-50">
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="https://ai-vr-fashion-try-on-7ssg.bolt.host/coordinate" target="_blank" rel="noopener noreferrer" 
+            class="flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-2xl 
+            bg-gradient-to-r from-blue-600 to-purple-600 
+            hover:from-blue-500 hover:to-purple-500
+            text-white font-semibold text-lg
+            shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40
+            transform hover:scale-[1.02] transition-all duration-300">
+            <span>サイトを開く</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+          </a>
+          <a href="/portfolio" 
+            class="flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-2xl 
+            bg-white hover:bg-gray-100
+            border border-gray-200 hover:border-gray-300
+            text-gray-700 font-semibold text-lg
+            transform hover:scale-[1.02] transition-all duration-300">
+            戻る
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style is:global>
+  .prose h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    color: #1e40af;
+    border-bottom: 3px solid #3b82f6;
+  }
+  
+  .prose h2:first-of-type {
+    margin-top: 0;
+  }
+  
+  .prose h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+    color: #1f2937;
+    border-left: 4px solid #8b5cf6;
+  }
+  
+  .prose ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .prose ul > li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .prose ul > li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #8b5cf6;
+    font-weight: bold;
+  }
+  
+  .prose blockquote {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-left: 4px solid #f59e0b;
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    font-style: normal;
+  }
+  
+  .prose blockquote p {
+    color: #92400e;
+    margin-bottom: 0.5rem;
+  }
+  
+  .prose blockquote p:last-child {
+    margin-bottom: 0;
+  }
+</style>
